@@ -16,15 +16,13 @@ class Processo:
     def executar(self, quantum):
         with self.lock:  # Garante acesso seguro à variável compartilhada
             tempo_a_executar = min(self.tempo_restante, quantum)
-            print(f"Executando processo {self.nome} (PID: {
-                  self.pid}) por {tempo_a_executar} segundos.")
+            print(f"Executando processo {self.nome} (PID: {self.pid}) por {tempo_a_executar} segundos.")
             time.sleep(tempo_a_executar)  # Simula o tempo de execução
             self.tempo_restante -= tempo_a_executar  # Reduz o tempo restante
             if self.tempo_restante == 0:
                 print(f"Processo {self.nome} (PID: {self.pid}) finalizado.")
             else:
-                print(f"Processo {self.nome} (PID: {self.pid}) ainda tem {
-                      self.tempo_restante} segundos restantes.")
+                print(f"Processo {self.nome} (PID: {self.pid}) ainda tem {self.tempo_restante} segundos restantes.")
 
 
 class Despachante:
